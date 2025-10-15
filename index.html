@@ -1,40 +1,91 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Inquiry</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Share a few details about your project. We’ll respond within 1–2 business days." />
+  <meta charset="utf-8">
+  <title>Project Inquiry</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    :root { --ink:#0f172a; --muted:#64748b; --bg:#f8fafc; --brand:#0ea5e9; }
+    :root {
+      --brand: #0ea5e9;
+      --ink: #0f172a;
+      --muted: #64748b;
+      --bg: #f8fafc;
+    }
     * { box-sizing: border-box; }
-    body { margin:0; font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color: var(--ink); background: var(--bg); }
-    .wrap { max-width: 880px; margin: 0 auto; padding: 56px 24px; }
-    header { text-align:center; margin-bottom: 28px; }
-    h1 { margin: 0 0 8px; font-size: clamp(28px,4vw,44px); letter-spacing: -0.02em; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    .brandbar {
+      height: 4px;
+      background: linear-gradient(90deg, var(--brand), #22c55e, #a78bfa);
+    }
+    .wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 56px 24px;
+    }
+    header { text-align: center; margin-bottom: 28px; }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: -0.02em;
+    }
     .lead { color: var(--muted); max-width: 720px; margin: 0 auto; }
-    .card { background:#fff; border-radius:16px; padding:28px; box-shadow: 0 10px 30px rgba(0,0,0,.08); }
-    label { display:block; font-weight:600; margin:16px 0 8px; }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+    label { display: block; font-weight: 600; margin: 16px 0 8px; }
     input, textarea, select {
-      width:100%; padding:14px 16px; border:1px solid #cbd5e1; border-radius:12px; background:#f9fafb; font-size:16px; outline:none;
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      background: #f9fafb;
+      font-size: 16px;
+      outline: none;
     }
-    input:focus, textarea:focus, select:focus { border-color: var(--brand); background:#fff; }
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--brand);
+      background: #fff;
+    }
     textarea { min-height: 140px; resize: vertical; }
-    .row { display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
-    @media (max-width:760px){ .row { grid-template-columns:1fr; } }
-    .actions { display:flex; align-items:center; gap:12px; margin-top:20px; flex-wrap: wrap; }
-    button {
-      border:0; border-radius:999px; padding:14px 22px; font-weight:700; background:var(--brand); color:#fff; cursor:pointer;
-      box-shadow:0 10px 20px rgba(14,165,233,.25);
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 760px) { .row { grid-template-columns: 1fr; } }
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
     }
-    button:disabled { opacity:.7; cursor: not-allowed; }
-    .hint { color: var(--muted); font-size:14px; }
-    .success, .error { margin-top:12px; padding:12px 16px; border-radius:12px; font-weight:600; }
-    .success { background:#ecfdf5; color:#065f46; }
-    .error { background:#fef2f2; color:#991b1b; }
-    .brandbar { height:4px; background: linear-gradient(90deg,#0ea5e9,#22c55e,#a78bfa); margin-bottom:8px; }
-    footer { text-align:center; margin-top:32px; color:#94a3b8; font-size:14px; }
-    .small { font-size: 12px; color: #64748b; margin-top: 8px; }
+    button {
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-weight: 700;
+      background: var(--brand);
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(14,165,233,.25);
+    }
+    button:disabled { opacity: .7; cursor: not-allowed; }
+    .hint { color: var(--muted); font-size: 14px; }
+    .success, .error {
+      margin-top: 12px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+    .success { background: #ecfdf5; color: #065f46; }
+    .error { background: #fef2f2; color: #991b1b; }
+    footer { text-align: center; margin-top: 32px; color: #94a3b8; font-size: 14px; }
+    .small { font-size: 12px; color: var(--muted); margin-top: 8px; }
   </style>
 </head>
 <body>
@@ -50,11 +101,11 @@
         <div class="row">
           <div>
             <label for="name">Your name</label>
-            <input id="name" name="name" type="text" placeholder="First Last" autocomplete="name" required />
+            <input id="name" name="name" type="text" placeholder="First Last" required>
           </div>
           <div>
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+            <input id="email" name="email" type="email" placeholder="you@example.com" required>
           </div>
         </div>
 
@@ -70,29 +121,26 @@
         <label for="message">Project details</label>
         <textarea id="message" name="message" placeholder="A few lines about scope, timeline, goals…" required></textarea>
 
-        <!-- Honeypot (spam trap) -->
+        <!-- Honeypot -->
         <div style="position:absolute; left:-9999px;" aria-hidden="true">
           <label for="company">Company</label>
-          <input id="company" name="company" type="text" autocomplete="off" tabindex="-1" />
+          <input id="company" name="company" type="text" autocomplete="off" tabindex="-1">
         </div>
 
         <div class="actions">
           <button type="submit" id="submitBtn">Send inquiry</button>
-          <span class="hint" id="status-hint">We’ll reply soon.</span>
+          <span class="hint">We’ll reply soon.</span>
         </div>
         <div id="alert" aria-live="polite"></div>
         <p class="small">By submitting, you consent to us storing your details to contact you about this inquiry.</p>
       </form>
     </section>
 
-    <footer>
-      © <span id="year"></span> Your Organization
-    </footer>
+    <footer>© <span id="year"></span> Your Organization</footer>
   </div>
 
   <script>
     const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxxS1rU1cA2gTJQ8r_zORzFX0fWmILM0mMAxJFbCjSm5NA_VCw0egN01aBEypS2j-q9Aw/exec';
-
     document.getElementById('year').textContent = new Date().getFullYear();
 
     const form = document.getElementById('contact-form');
@@ -104,39 +152,35 @@
       alertBox.textContent = '';
       alertBox.className = '';
 
-      // honeypot
       if (document.getElementById('company').value.trim() !== '') return;
 
-      const payload = {
-        name: form.name.value.trim(),
-        email: form.email.value.trim(),
-        budget: form.budget.value,
-        message: form.message.value.trim()
-      };
-      if (!payload.name || !payload.email || !payload.message) {
-        show('Please complete name, email, and message.', 'error'); 
-        return;
-      }
+      const fd = new FormData();
+      fd.append('name', form.name.value.trim());
+      fd.append('email', form.email.value.trim());
+      fd.append('budget', form.budget.value);
+      fd.append('message', form.message.value.trim());
 
-      submitBtn.disabled = true; submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
       try {
-        const res = await fetch(ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        const json = await res.json();
-        if (json.ok) {
+        const res = await fetch(ENDPOINT, { method: 'POST', body: fd });
+        const text = await res.text();
+        let data = null;
+        try { data = JSON.parse(text); } catch {}
+        if (data && data.ok) {
           form.reset();
           show('Thanks! Your message has been received.', 'success');
         } else {
-          throw new Error(json.error || 'Unknown error');
+          show('Server error: ' + (data?.error || 'Unexpected response'), 'error');
+          console.error('Response was:', text);
         }
       } catch (err) {
         console.error(err);
         show('Sorry—something went wrong. Please try again or email us directly.', 'error');
       } finally {
-        submitBtn.disabled = false; submitBtn.textContent = 'Send inquiry';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send inquiry';
       }
     });
 
